@@ -50,7 +50,7 @@
       "height": 160,
       "rotation": 0,
       "opacity": 1,
-      "fill": "#7c6ce0",
+      "fill": "#16a34a",
       "stroke": "#000000",
       "strokeWidth": 0,
       "radius": 0
@@ -110,7 +110,7 @@
       "height": 3,
       "rotation": 0,
       "opacity": 1,
-      "fill": "#7c6ce0",
+      "fill": "#16a34a",
       "stroke": "#000000",
       "strokeWidth": 0,
       "radius": 8
@@ -368,7 +368,7 @@
       "height": 3,
       "rotation": 0,
       "opacity": 1,
-      "fill": "#7c6ce0",
+      "fill": "#16a34a",
       "stroke": "#000000",
       "strokeWidth": 0,
       "radius": 8
@@ -582,7 +582,7 @@
       "height": 3,
       "rotation": 0,
       "opacity": 1,
-      "fill": "#7c6ce0",
+      "fill": "#16a34a",
       "stroke": "#000000",
       "strokeWidth": 0,
       "radius": 8
@@ -651,7 +651,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgaf0gp45",
@@ -717,7 +717,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgaf0gp48",
@@ -783,7 +783,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgaflwd5c",
@@ -827,7 +827,7 @@
       "fontFamily": "Inter",
       "fontWeight": 700,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgaflwd5e",
@@ -878,7 +878,7 @@
       "height": 3,
       "rotation": 0,
       "opacity": 1,
-      "fill": "#7c6ce0",
+      "fill": "#16a34a",
       "stroke": "#000000",
       "strokeWidth": 0,
       "radius": 8
@@ -938,7 +938,7 @@
       "height": 3,
       "rotation": 0,
       "opacity": 1,
-      "fill": "#7c6ce0",
+      "fill": "#16a34a",
       "stroke": "#000000",
       "strokeWidth": 0,
       "radius": 8
@@ -985,7 +985,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgaflwd5m",
@@ -1051,7 +1051,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgaflwd5p",
@@ -1117,7 +1117,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgaflwd5s",
@@ -1183,7 +1183,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgaflwd5v",
@@ -1249,7 +1249,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgaflwd5y",
@@ -1469,7 +1469,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgasbwuyy",
@@ -1535,7 +1535,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgasbwuz1",
@@ -1601,7 +1601,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgasbwuz4",
@@ -1667,7 +1667,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgasbwuz7",
@@ -1733,7 +1733,7 @@
       "fontFamily": "Inter",
       "fontWeight": 600,
       "align": "left",
-      "color": "#7c6ce0"
+      "color": "#16a34a"
     },
     {
       "id": "nmrgasbwuza",
@@ -1790,7 +1790,7 @@
       "height": 3,
       "rotation": 0,
       "opacity": 1,
-      "fill": "#7c6ce0",
+      "fill": "#16a34a",
       "stroke": "#000000",
       "strokeWidth": 0,
       "radius": 8

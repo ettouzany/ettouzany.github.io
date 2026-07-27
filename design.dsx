@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "canvas": {
+    "width": 1440,
+    "height": 1024,
+    "background": "#ffffff"
+  },
+  "nodes": [
+    {
+      "id": "nmrm4810o7x",
+      "type": "frame",
+      "name": "Frame 1",
+      "parentId": null,
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 1024,
+      "rotation": 0,
+      "opacity": 1,
+      "fill": "#ffffff",
+      "stroke": "#e0e0ea",
+      "strokeWidth": 1,
+      "radius": 0,
+      "clip": true
+    }
+  ]
+}

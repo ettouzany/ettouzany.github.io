@@ -37,7 +37,7 @@
       "fill": "#6366f1",
       "stroke": "#000000",
       "strokeWidth": 0,
-      "radius": 8,
+      "radius": 0,
       "fills": [
         {
           "type": "linear",
@@ -264,8 +264,8 @@
       "fontSize": 30,
       "fontFamily": "Inter",
       "fontWeight": 800,
-      "color": "#ffffff",
-      "align": "center"
+      "align": "center",
+      "color": "#ffffff"
     },
     {
       "id": "nmrga9o5oo",
@@ -286,8 +286,8 @@
       "fontSize": 24,
       "fontFamily": "Inter",
       "fontWeight": 800,
-      "color": "#1e1b2e",
-      "align": "left"
+      "align": "left",
+      "color": "#1e1b2e"
     },
     {
       "id": "nmrga9o5op",
@@ -308,8 +308,8 @@
       "fontSize": 17,
       "fontFamily": "Inter",
       "fontWeight": 600,
-      "color": "#6d5bd0",
-      "align": "left"
+      "align": "left",
+      "color": "#6d5bd0"
     },
     {
       "id": "nmrga9o5oq",
@@ -330,8 +330,8 @@
       "fontSize": 14,
       "fontFamily": "Inter",
       "fontWeight": 400,
-      "color": "#6b7280",
-      "align": "left"
+      "align": "left",
+      "color": "#6b7280"
     },
     {
       "id": "nmrga9o5or",
@@ -368,8 +368,8 @@
       "fontSize": 13,
       "fontFamily": "Inter",
       "fontWeight": 600,
-      "color": "#6d5bd0",
-      "align": "left"
+      "align": "left",
+      "color": "#6d5bd0"
     },
     {
       "id": "nmrga9o5ot",
@@ -390,8 +390,8 @@
       "fontSize": 15,
       "fontFamily": "Inter",
       "fontWeight": 700,
-      "color": "#3b2f6b",
-      "align": "right"
+      "align": "right",
+      "color": "#3b2f6b"
     },
     {
       "id": "nmrga9o5ou",
@@ -412,8 +412,8 @@
       "fontSize": 13,
       "fontFamily": "Inter",
       "fontWeight": 400,
-      "color": "#9aa0ab",
-      "align": "right"
+      "align": "right",
+      "color": "#9aa0ab"
     },
     {
       "id": "nmrga9o5ov",
@@ -493,8 +493,8 @@
       "fontSize": 30,
       "fontFamily": "Inter",
       "fontWeight": 800,
-      "color": "#ffffff",
-      "align": "center"
+      "align": "center",
+      "color": "#ffffff"
     },
     {
       "id": "nmrga9o5oz",
@@ -515,8 +515,8 @@
       "fontSize": 24,
       "fontFamily": "Inter",
       "fontWeight": 800,
-      "color": "#1e1b2e",
-      "align": "left"
+      "align": "left",
+      "color": "#1e1b2e"
     },
     {
       "id": "nmrga9o5o10",
@@ -537,8 +537,8 @@
       "fontSize": 15,
       "fontFamily": "Inter",
       "fontWeight": 600,
-      "color": "#12876c",
-      "align": "left"
+      "align": "left",
+      "color": "#12876c"
     },
     {
       "id": "nmrga9o5o11",
@@ -559,8 +559,8 @@
       "fontSize": 14,
       "fontFamily": "Inter",
       "fontWeight": 400,
-      "color": "#6b7280",
-      "align": "left"
+      "align": "left",
+      "color": "#6b7280"
     },
     {
       "id": "nmrga9o5o12",
@@ -597,8 +597,8 @@
       "fontSize": 13,
       "fontFamily": "Inter",
       "fontWeight": 600,
-      "color": "#12876c",
-      "align": "left"
+      "align": "left",
+      "color": "#12876c"
     },
     {
       "id": "nmrga9o5o14",
@@ -619,8 +619,8 @@
       "fontSize": 15,
       "fontFamily": "Inter",
       "fontWeight": 700,
-      "color": "#3b2f6b",
-      "align": "right"
+      "align": "right",
+      "color": "#3b2f6b"
     },
     {
       "id": "nmrga9o5o15",
@@ -641,8 +641,8 @@
       "fontSize": 13,
       "fontFamily": "Inter",
       "fontWeight": 400,
-      "color": "#9aa0ab",
-      "align": "right"
+      "align": "right",
+      "color": "#9aa0ab"
     },
     {
       "id": "nmrga9o5o16",
@@ -722,8 +722,8 @@
       "fontSize": 30,
       "fontFamily": "Inter",
       "fontWeight": 800,
-      "color": "#ffffff",
-      "align": "center"
+      "align": "center",
+      "color": "#ffffff"
     },
     {
       "id": "nmrga9o5o1a",
@@ -744,8 +744,8 @@
       "fontSize": 24,
       "fontFamily": "Inter",
       "fontWeight": 800,
-      "color": "#1e1b2e",
-      "align": "left"
+      "align": "left",
+      "color": "#1e1b2e"
     },
     {
       "id": "nmrga9o5o1b",
@@ -766,8 +766,8 @@
       "fontSize": 17,
       "fontFamily": "Inter",
       "fontWeight": 600,
-      "color": "#e0663a",
-      "align": "left"
+      "align": "left",
+      "color": "#e0663a"
     },
     {
       "id": "nmrga9o5o1c",
@@ -788,8 +788,8 @@
       "fontSize": 14,
       "fontFamily": "Inter",
       "fontWeight": 400,
-      "color": "#6b7280",
-      "align": "left"
+      "align": "left",
+      "color": "#6b7280"
     },
     {
       "id": "nmrga9o5o1d",
@@ -826,8 +826,8 @@
       "fontSize": 13,
       "fontFamily": "Inter",
       "fontWeight": 600,
-      "color": "#e0663a",
-      "align": "left"
+      "align": "left",
+      "color": "#e0663a"
     },
     {
       "id": "nmrga9o5o1f",
@@ -848,8 +848,8 @@
       "fontSize": 15,
       "fontFamily": "Inter",
       "fontWeight": 700,
-      "color": "#3b2f6b",
-      "align": "right"
+      "align": "right",
+      "color": "#3b2f6b"
     },
     {
       "id": "nmrga9o5o1g",
@@ -870,8 +870,8 @@
       "fontSize": 13,
       "fontFamily": "Inter",
       "fontWeight": 400,
-      "color": "#9aa0ab",
-      "align": "right"
+      "align": "right",
+      "color": "#9aa0ab"
     },
     {
       "id": "nmrga9o5o1h",
@@ -951,8 +951,8 @@
       "fontSize": 30,
       "fontFamily": "Inter",
       "fontWeight": 800,
-      "color": "#ffffff",
-      "align": "center"
+      "align": "center",
+      "color": "#ffffff"
     },
     {
       "id": "nmrga9o5o1l",
@@ -973,8 +973,8 @@
       "fontSize": 24,
       "fontFamily": "Inter",
       "fontWeight": 800,
-      "color": "#1e1b2e",
-      "align": "left"
+      "align": "left",
+      "color": "#1e1b2e"
     },
     {
       "id": "nmrga9o5o1m",
@@ -995,8 +995,8 @@
       "fontSize": 17,
       "fontFamily": "Inter",
       "fontWeight": 600,
-      "color": "#2563eb",
-      "align": "left"
+      "align": "left",
+      "color": "#2563eb"
     },
     {
       "id": "nmrga9o5o1n",
@@ -1017,8 +1017,8 @@
       "fontSize": 14,
       "fontFamily": "Inter",
       "fontWeight": 400,
-      "color": "#6b7280",
-      "align": "left"
+      "align": "left",
+      "color": "#6b7280"
     },
     {
       "id": "nmrga9o5o1o",
@@ -1055,8 +1055,8 @@
       "fontSize": 13,
       "fontFamily": "Inter",
       "fontWeight": 600,
-      "color": "#2563eb",
-      "align": "left"
+      "align": "left",
+      "color": "#2563eb"
     },
     {
       "id": "nmrga9o5o1q",
@@ -1077,8 +1077,8 @@
       "fontSize": 15,
       "fontFamily": "Inter",
       "fontWeight": 700,
-      "color": "#3b2f6b",
-      "align": "right"
+      "align": "right",
+      "color": "#3b2f6b"
     },
     {
       "id": "nmrga9o5o1r",
@@ -1099,8 +1099,8 @@
       "fontSize": 13,
       "fontFamily": "Inter",
       "fontWeight": 400,
-      "color": "#9aa0ab",
-      "align": "right"
+      "align": "right",
+      "color": "#9aa0ab"
     }
   ]
 }
