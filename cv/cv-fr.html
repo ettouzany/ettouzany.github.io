@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<title>NOUREDDINE ETTOUZANY — CV (FR)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+@page { size: A4; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 210mm; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #262138;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background: #e9e9ef;
+}
+.page {
+  position: relative;
+  width: 210mm; height: 297mm;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 72mm 1fr;
+  overflow: hidden;
+  margin: 0 auto;
+}
+/* sidebar */
+.side { background: #262138; color: #fff; padding: 9mm 8mm; }
+.avatar {
+  width: 30mm; height: 30mm; border-radius: 50%;
+  margin: 1mm auto 7mm; display: block;
+  object-fit: cover; border: 0.9mm solid rgba(255,255,255,.14);
+  background: #16a34a;
+}
+.side h2, .main h2 {
+  font-size: 8.4pt; font-weight: 800; letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.side h2 { color: #fff; }
+.side h2::after, .main h2::after {
+  content: ""; display: block; width: 9mm; height: 0.8mm;
+  background: #16a34a; margin-top: 1.6mm;
+}
+.side section { margin-bottom: 6.4mm; }
+.side section:last-child { margin-bottom: 0; }
+.side ul { list-style: none; margin-top: 3.4mm; }
+.side li { margin-bottom: 2.9mm; }
+.side li:last-child { margin-bottom: 0; }
+.lbl {
+  font-size: 6.2pt; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: #16a34a; margin-bottom: 0.5mm;
+}
+.val { font-size: 8pt; font-weight: 400; color: #e6e5ee; line-height: 1.32; word-break: break-word; }
+.side .edu-school { font-size: 8.6pt; font-weight: 700; color: #fff; }
+.side .edu-degree { font-size: 7.6pt; color: #c9c7d6; line-height: 1.3; margin-top: 0.3mm; }
+.side .edu-years { font-size: 7pt; font-weight: 600; color: #16a34a; margin-top: 0.5mm; }
+.side .lang { font-size: 8pt; color: #e6e5ee; margin-bottom: 1.9mm; }
+
+/* main column */
+.main { padding: 9mm 9mm 7mm; display: flex; flex-direction: column; }
+.name {
+  font-size: 21pt; font-weight: 800; letter-spacing: -.01em;
+  line-height: 1.06; color: #262138;
+}
+.role {
+  font-size: 9.6pt; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: #16a34a; margin-top: 2.4mm;
+}
+.main section { margin-top: 6mm; }
+.main h2 { color: #262138; }
+.profile { font-size: 8.4pt; line-height: 1.5; color: #4a4560; margin-top: 3.4mm; }
+.xp { margin-top: 3.4mm; }
+.job { margin-bottom: 3.5mm; }
+.job:last-child { margin-bottom: 0; }
+.job-role { font-size: 9pt; font-weight: 700; color: #262138; line-height: 1.25; }
+.job-meta { font-size: 7.4pt; font-weight: 600; color: #16a34a; margin-top: 0.4mm; }
+.job-desc { font-size: 8pt; line-height: 1.42; color: #4a4560; margin-top: 0.7mm; }
+
+/* Arabic: mirror the layout and keep latin runs (dates, tech, urls) LTR */
+body[dir="rtl"] .page { grid-template-columns: 1fr 72mm; }
+body[dir="rtl"] .side { order: 2; }
+body[dir="rtl"] .main { order: 1; }
+body[dir="rtl"] .name { letter-spacing: 0; line-height: 1.3; }
+body[dir="rtl"] .role { letter-spacing: .02em; }
+body[dir="rtl"] .lbl { letter-spacing: 0; }
+.ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+body[dir="rtl"] .val.ltr, body[dir="rtl"] .job-meta .ltr { text-align: right; }
+/* Cairo sits taller than Inter, so the sidebar needs a tighter rhythm to
+   keep all four blocks on the single sheet */
+body[dir="rtl"] .side { padding: 7mm 8mm; }
+body[dir="rtl"] .avatar { width: 24mm; height: 24mm; margin-bottom: 4mm; }
+body[dir="rtl"] .side section { margin-bottom: 3.8mm; }
+body[dir="rtl"] .side ul { margin-top: 2.6mm; }
+body[dir="rtl"] .side li { margin-bottom: 1.7mm; }
+body[dir="rtl"] .val { font-size: 7.6pt; line-height: 1.25; }
+body[dir="rtl"] .lbl { font-size: 6.6pt; margin-bottom: 0.2mm; }
+body[dir="rtl"] .edu-school { font-size: 8.2pt; }
+body[dir="rtl"] .edu-degree { font-size: 7.2pt; }
+body[dir="rtl"] .lang { font-size: 7.8pt; margin-bottom: 1.3mm; }
+
+@media screen { body { padding: 10mm 0; } .page { box-shadow: 0 2mm 8mm rgba(0,0,0,.18); } }
+</style>
+</head>
+<body dir="ltr">
+<div class="page">
+  <aside class="side">
+    <img class="avatar" src="../img/cv/avatar.png" alt="" />
+    <section>
+      <h2>CONTACT</h2>
+      <ul>
+      <li><div class="lbl">E-MAIL</div><div class="val ltr">n.ettouzany@gmail.com</div></li>
+      <li><div class="lbl">TÉLÉPHONE</div><div class="val ltr">+212 691 949 534</div></li>
+      <li><div class="lbl">SITE WEB</div><div class="val ltr">www.ettouzany.me</div></li>
+      <li><div class="lbl">LINKEDIN</div><div class="val ltr">in/noureddine-ettouzany</div></li>
+      <li><div class="lbl">GITHUB</div><div class="val ltr">github.com/ettouzany</div></li>
+      </ul>
+    </section>
+    <section>
+      <h2>COMPÉTENCES</h2>
+      <ul>
+      <li><div class="lbl" style="color:#fff;font-size:7.4pt">Frontend</div><div class="val">React, Next.js, TypeScript, Angular, Tailwind</div></li>
+      <li><div class="lbl" style="color:#fff;font-size:7.4pt">Backend</div><div class="val">Node.js, NestJS, Express, Spring Boot, .NET Core</div></li>
+      <li><div class="lbl" style="color:#fff;font-size:7.4pt">Cloud &amp; DevOps</div><div class="val">AWS, Docker, Kubernetes, CI/CD, Terraform</div></li>
+      <li><div class="lbl" style="color:#fff;font-size:7.4pt">Bases de données</div><div class="val">PostgreSQL, MySQL, Redis, MongoDB, Firebase</div></li>
+      <li><div class="lbl" style="color:#fff;font-size:7.4pt">Mobile</div><div class="val">React Native, Flutter, Ionic, Swift</div></li>
+      </ul>
+    </section>
+    <section>
+      <h2>FORMATION</h2>
+      <ul>
+      <li><div class="edu-school ltr">42 Network</div><div class="edu-degree">Master en informatique (MSCS)</div><div class="edu-years ltr">2019 — 2023</div></li>
+      <li><div class="edu-school ltr">ENSA</div><div class="edu-degree">Licence — Big Data &amp; Machine Learning</div><div class="edu-years ltr">2021 — 2022</div></li>
+      <li><div class="edu-school ltr">OFPPT</div><div class="edu-degree">Diplôme en informatique</div><div class="edu-years ltr">2018 — 2020</div></li>
+      </ul>
+    </section>
+    <section>
+      <h2>LANGUES</h2>
+      <div style="margin-top:3.4mm">
+      <div class="lang">Arabe — Langue maternelle</div>
+      <div class="lang">Français — Courant</div>
+      <div class="lang">Anglais — Professionnel</div>
+      </div>
+    </section>
+  </aside>
+  <main class="main">
+    <div class="name">NOUREDDINE ETTOUZANY</div>
+    <div class="role">INGÉNIEUR FULL STACK</div>
+    <section>
+      <h2>PROFIL</h2>
+      <p class="profile">Ingénieur Full Stack avec plus de 8 ans d'expérience dans la livraison de solutions web et mobiles de haute qualité. Je transforme et renforce la présence web, dirige des équipes d'ingénierie et impose des standards d'architecture et de qualité de code au service de la croissance.</p>
+    </section>
+    <section>
+      <h2>EXPÉRIENCE</h2>
+      <div class="xp">
+        <div class="job"><div class="job-role">Ingénieur Full Stack — Acorvo</div><div class="job-meta"><span class="ltr">2026  ·  Next.js  ·  TypeScript</span></div><div class="job-desc">Développement du front-end d'un SaaS de gestion de cabinets dentaires : dossiers patients, planification intelligente, facturation, tableaux de bord analytiques, accès par rôle et interface multilingue.</div></div>
+        <div class="job"><div class="job-role">CTO — PUT</div><div class="job-meta"><span class="ltr">2025  ·  React</span></div><div class="job-desc">Direction de la vision technique et de l'architecture de PUT, plateforme immobilière de location, vente et gestion de biens.</div></div>
+        <div class="job"><div class="job-role">Team Leader / Software Manager — Sahty</div><div class="job-meta"><span class="ltr">2024 — 2025  ·  Java</span></div><div class="job-desc">Encadrement d'une équipe d'ingénierie pluridisciplinaire, définition de l'architecture et des standards de qualité, livraison de systèmes scalables.</div></div>
+        <div class="job"><div class="job-role">Développeur Front-end — Tygo.sa</div><div class="job-meta"><span class="ltr">2021 — 2026  ·  React  ·  .NET Core</span></div><div class="job-desc">Développement des fonctionnalités utilisateur d'une plateforme de comparaison SIM / eSIM couvrant plus de 250 forfaits en Arabie saoudite.</div></div>
+        <div class="job"><div class="job-role">Développeur Front-end — Senaei (Ministère de l'Industrie, AS)</div><div class="job-meta"><span class="ltr">2023  ·  Angular</span></div><div class="job-desc">Création d'interfaces Angular simplifiant les démarches de licences industrielles et de conformité pour les investisseurs.</div></div>
+        <div class="job"><div class="job-role">Chef de projet — Derwork</div><div class="job-meta"><span class="ltr">2022  ·  Next.js</span></div><div class="job-desc">Pilotage de la livraison d'une plateforme d'emploi Next.js : annonces, avis d'entreprises et tableaux de bord, avec des équipes pluridisciplinaires.</div></div>
+        <div class="job"><div class="job-role">Développeur d'applications — Edoc</div><div class="job-meta"><span class="ltr">2022  ·  Flutter</span></div><div class="job-desc">Conception et développement de 8 applications éducatives enseignant la programmation via des leçons et des quiz.</div></div>
+        <div class="job"><div class="job-role">Développeur App / Web — Havatar</div><div class="job-meta"><span class="ltr">2022  ·  Flutter</span></div><div class="job-desc">Réalisation en autonomie d'une plateforme de livraison complète (type Glovo) pour clients, livreurs et commerçants.</div></div>
+        <div class="job"><div class="job-role">Développeur PrestaShop — Lalic</div><div class="job-meta"><span class="ltr">2022  ·  PrestaShop</span></div><div class="job-desc">Développement et personnalisation de boutiques e-commerce : thèmes, modules et intégrations de paiement.</div></div>
+        <div class="job"><div class="job-role">Développeur Front-End &amp; Designer — fekrasystems</div><div class="job-meta"><span class="ltr">2018  ·  Angular</span></div><div class="job-desc">Livraison de plus de 10 systèmes de gestion Angular avec une UI/UX responsive et ergonomique.</div></div>
+        <div class="job"><div class="job-role">Front-End WordPress — lgaming.ma</div><div class="job-meta"><span class="ltr">2017  ·  WordPress</span></div><div class="job-desc">Débuts de carrière : création de sites WordPress responsives et de designs front-end.</div></div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
