@@ -32,7 +32,7 @@ section{padding:120px 0}
 @media(hover:hover){
   *{cursor:none}
   .cursor{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),background .25s}
-  .cursor-ring{position:fixed;top:0;left:0;width:38px;height:38px;border:1px solid rgba(255,255,255,.35);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .12s ease-out,width .3s var(--ease),height .3s var(--ease),border-color .3s}
+  .cursor-ring{position:fixed;top:0;left:0;width:38px;height:38px;border:1px solid rgba(255,255,255,.35);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),border-color .3s,background .3s}
   body.hovering .cursor{width:0;height:0}
   body.hovering .cursor-ring{width:74px;height:74px;border-color:var(--accent);background:rgba(198,255,58,.08)}
 }
@@ -64,8 +64,11 @@ section{padding:120px 0}
 #art{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;width:100%}
 .hero .status{display:inline-flex;align-items:center;gap:9px;margin-bottom:34px}
-.hero .status .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(198,255,58,.5)}70%{box-shadow:0 0 0 9px rgba(198,255,58,0)}100%{box-shadow:0 0 0 0 rgba(198,255,58,0)}}
+/* ring is a scaling pseudo-element, not an animated box-shadow —
+   box-shadow repaints on the CPU every single frame, transform does not */
+.hero .status .pulse{position:relative;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero .status .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(3.25);opacity:0}100%{transform:scale(3.25);opacity:0}}
 .hero h1{font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:-.03em;line-height:.9;font-size:clamp(52px,10.5vw,140px);color:var(--white);text-transform:uppercase}
 .hero h1 .line{display:block;overflow:hidden}
 .hero h1 .line span{display:block;transform:translateY(105%);transition:transform 1s var(--ease)}
@@ -87,7 +90,8 @@ section{padding:120px 0}
 
 /* MARQUEE */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;white-space:nowrap}
-.strip .row{display:inline-block;animation:scroll 26s linear infinite}
+.strip .row{display:inline-block;animation:scroll 26s linear infinite;will-change:transform}
+.strip.idle .row{animation-play-state:paused}
 .strip span{font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.01em;color:var(--muted);text-transform:uppercase;margin:0 26px}
 .strip span .a{color:var(--accent)}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -120,29 +124,42 @@ section{padding:120px 0}
   position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;
   background:#0d0d0d;isolation:isolate;
 }
+/* At rest this is just a plain image — no blending, no extra layers.
+   On hover the base image is dropped to black and the two channel layers
+   take over; since red+cyan screen back to the exact original, the
+   handoff is invisible, but the cost only exists while hovering. */
 .glitch{
-  position:absolute;inset:0;background-color:#000;isolation:isolate;
-  transform:scale(1);transition:transform .8s var(--ease);
+  position:absolute;inset:0;background:#000 var(--img) center/cover no-repeat;
+  isolation:isolate;transform:scale(1);transition:transform .8s var(--ease);
 }
-.proj:hover .glitch{transform:scale(1.035)}
-/* channel layers */
+.proj:hover .glitch{transform:scale(1.035);background-image:none}
+/* channel layers — idle until hover */
 .glitch::before,.glitch::after{
-  content:"";position:absolute;inset:0;
-  background-image:linear-gradient(#f00,#f00),var(--img);
+  content:"";position:absolute;inset:0;opacity:0;
   background-blend-mode:multiply;background-size:cover;background-position:center;
-  mix-blend-mode:screen;will-change:transform;
+  mix-blend-mode:screen;
 }
-.glitch::after{background-image:linear-gradient(#0ff,#0ff),var(--img)}
-.proj:hover .glitch::before{animation:ch-r 3s infinite}
-.proj:hover .glitch::after{animation:ch-c 3s infinite}
-/* displaced slices */
+.proj:hover .glitch::before{
+  background-image:linear-gradient(#f00,#f00),var(--img);
+  opacity:1;will-change:transform;animation:ch-r 3s infinite;
+}
+.proj:hover .glitch::after{
+  background-image:linear-gradient(#0ff,#0ff),var(--img);
+  opacity:1;will-change:transform;animation:ch-c 3s infinite;
+}
+/* displaced slices — also idle until hover */
 .p-media::before,.p-media::after{
   content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;
-  background-image:var(--img);background-size:cover;background-position:center;
-  filter:saturate(1.5) contrast(1.15);
+  background-size:cover;background-position:center;
 }
-.proj:hover .p-media::before{animation:tear-a 3s steps(1) infinite}
-.proj:hover .p-media::after{animation:tear-b 3s steps(1) infinite}
+.proj:hover .p-media::before{
+  background-image:var(--img);filter:saturate(1.5) contrast(1.15);
+  animation:tear-a 3s steps(1) infinite;
+}
+.proj:hover .p-media::after{
+  background-image:var(--img);filter:saturate(1.5) contrast(1.15);
+  animation:tear-b 3s steps(1) infinite;
+}
 /* scanlines + sweep */
 .p-media .scan{
   position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;
@@ -290,7 +307,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <a href="#contact" class="btn btn-ghost" data-hover>Get in Touch</a>
       </div>
     </div>
-    <div class="portrait"><img src="img/about/4.jpg" alt="Noureddine Ettouzany" /></div>
+    <div class="portrait"><img src="img/about/4-web.webp" alt="Noureddine Ettouzany" /></div>
   </div>
 </header>
 
@@ -313,17 +330,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <a href="https://put.ma" target="_blank" rel="noopener" class="proj reveal" data-hover>
         <div class="p-num">01</div>
         <div class="p-info"><h3>PUT</h3><div class="tags">Real-estate platform · React · CTO</div><span class="view">View project ↗</span></div>
-        <div class="p-media" style="--img:url(img/portfolio/put.ma/1.png)"><div class="glitch"></div><div class="scan"></div></div>
+        <div class="p-media" style="--img:url(img/portfolio/put.ma/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
       <a href="https://tygo.sa" target="_blank" rel="noopener" class="proj reveal" data-hover>
         <div class="p-num">02</div>
         <div class="p-info"><h3>Tygo.sa</h3><div class="tags">SIM / eSIM comparison · React · .NET Core</div><span class="view">View project ↗</span></div>
-        <div class="p-media" style="--img:url(img/portfolio/tygo/2.png)"><div class="glitch"></div><div class="scan"></div></div>
+        <div class="p-media" style="--img:url(img/portfolio/tygo/2-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
-      <a href="#work" class="proj reveal" data-hover>
+      <a href="https://saudipedia.com/%D9%85%D9%86%D8%B5%D8%A9-%D8%B5%D9%86%D8%A7%D8%B9%D9%8A" target="_blank" rel="noopener" class="proj reveal" data-hover>
         <div class="p-num">03</div>
         <div class="p-info"><h3>Senaei</h3><div class="tags">Ministry of Industry · Angular</div><span class="view">View project ↗</span></div>
-        <div class="p-media" style="--img:url(img/portfolio/sntl/1.jpg)"><div class="glitch"></div><div class="scan"></div></div>
+        <div class="p-media" style="--img:url(img/portfolio/senaei/cover-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
       <a href="#work" class="proj reveal" data-hover>
         <div class="p-num">04</div>
@@ -333,17 +350,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <a href="#work" class="proj reveal" data-hover>
         <div class="p-num">05</div>
         <div class="p-info"><h3>Edoc</h3><div class="tags">8 educational apps · Flutter</div><span class="view">View project ↗</span></div>
-        <div class="p-media" style="--img:url(img/portfolio/edoc/1.jpg)"><div class="glitch"></div><div class="scan"></div></div>
+        <div class="p-media" style="--img:url(img/portfolio/edoc/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
       <a href="#work" class="proj reveal" data-hover>
         <div class="p-num">06</div>
         <div class="p-info"><h3>Inclusive Morocco</h3><div class="tags">Accessibility platform · React</div><span class="view">View project ↗</span></div>
-        <div class="p-media" style="--img:url(img/portfolio/inclusive-morocco/1.jpg)"><div class="glitch"></div><div class="scan"></div></div>
+        <div class="p-media" style="--img:url(img/portfolio/inclusive-morocco/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
       <a href="#work" class="proj reveal" data-hover>
         <div class="p-num">07</div>
         <div class="p-info"><h3>Qless</h3><div class="tags">Queue management · Mobile</div><span class="view">View project ↗</span></div>
-        <div class="p-media" style="--img:url(img/portfolio/qless/1.jpg)"><div class="glitch"></div><div class="scan"></div></div>
+        <div class="p-media" style="--img:url(img/portfolio/qless/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
     </div>
   </div>
@@ -400,9 +417,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 (function(){
   var dot=document.querySelector('.cursor'),ring=document.querySelector('.cursor-ring');
   if(!matchMedia('(hover:hover)').matches)return;
-  var rx=0,ry=0,x=0,y=0;
-  addEventListener('mousemove',function(e){x=e.clientX;y=e.clientY;dot.style.left=x+'px';dot.style.top=y+'px';});
-  (function loop(){rx+=(x-rx)*.18;ry+=(y-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+  var rx=0,ry=0,x=0,y=0,running=false;
+  // the ring chases the pointer, but the loop parks itself once it catches up
+  function loop(){
+    rx+=(x-rx)*.18;ry+=(y-ry)*.18;
+    ring.style.transform='translate3d('+rx+'px,'+ry+'px,0) translate(-50%,-50%)';
+    if(Math.abs(x-rx)<.1&&Math.abs(y-ry)<.1){running=false;return;}
+    requestAnimationFrame(loop);
+  }
+  addEventListener('mousemove',function(e){
+    x=e.clientX;y=e.clientY;
+    dot.style.transform='translate3d('+x+'px,'+y+'px,0) translate(-50%,-50%)';
+    if(!running){running=true;requestAnimationFrame(loop);}
+  },{passive:true});
   document.querySelectorAll('[data-hover]').forEach(function(el){
     el.addEventListener('mouseenter',function(){document.body.classList.add('hovering')});
     el.addEventListener('mouseleave',function(){document.body.classList.remove('hovering')});
@@ -431,9 +458,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 // ---- 3D artifact (Three.js) ----
 (function(){
   if(!window.THREE)return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
   var canvas=document.getElementById('art'),hero=document.getElementById('hero');
-  var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  var dpr=Math.min(devicePixelRatio||1,1.5);
+  var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:dpr<1.5,powerPreference:'low-power'});
+  renderer.setPixelRatio(dpr);
   var scene=new THREE.Scene();
   var cam=new THREE.PerspectiveCamera(45,1,.1,100);cam.position.z=6;
   var grp=new THREE.Group();scene.add(grp);
@@ -451,17 +480,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   var pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffffff,size:.03,transparent:true,opacity:.5}));
   scene.add(pts);
   var mx=0,my=0;
-  addEventListener('mousemove',function(e){mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5);});
+  addEventListener('mousemove',function(e){mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5);},{passive:true});
   function size(){var w=hero.clientWidth,h=hero.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
   size();addEventListener('resize',size);
-  (function anim(){
+
+  // Only burn GPU while the hero is actually on screen and the tab is visible.
+  var visible=true,active=false,raf=0;
+  function anim(){
+    if(!visible||document.hidden){active=false;return;}
     grp.rotation.y+=.0035;grp.rotation.x+=.0015;
-    grp.rotation.y+=(mx*.5-grp.rotation.y*0)*.0;
     grp.position.x+=((mx*1.2)-grp.position.x)*.05;
     grp.position.y+=((-my*1.2)-grp.position.y)*.05;
     pts.rotation.y-=.0006;
-    renderer.render(scene,cam);requestAnimationFrame(anim);
-  })();
+    renderer.render(scene,cam);
+    raf=requestAnimationFrame(anim);
+  }
+  function start(){if(!active&&visible&&!document.hidden){active=true;raf=requestAnimationFrame(anim);}}
+  new IntersectionObserver(function(e){visible=e[0].isIntersecting;start();}).observe(hero);
+  document.addEventListener('visibilitychange',start);
+  start();
 })();
 
 // ---- Scroll reveal ----
@@ -470,6 +507,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     ents.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} });
   },{threshold:.15});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+
+// ---- Stop the marquee while it's off screen ----
+(function(){
+  var strip=document.querySelector('.strip'); if(!strip)return;
+  new IntersectionObserver(function(e){
+    strip.classList.toggle('idle',!e[0].isIntersecting);
+  }).observe(strip);
 })();
 </script>
 
