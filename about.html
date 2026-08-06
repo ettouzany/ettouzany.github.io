@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Noureddine Ettouzany</title>
+<meta name="description" content="Learn more about Noureddine Ettouzany, a Full Stack Engineer with 8+ years of experience building web and mobile solutions." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#17131f; --panel:#221d2e; --card:#241f31; --border:#342c46;
+  --green:#16a34a; --green-b:#22c55e; --gtint:#1e3a2b;
+  --white:#fff; --text:#c9c4d6; --muted:#8f88a6; --dim:#6f6885;
+  --maxw:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.accent{color:var(--green-b)}
+.tag{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--green-b);text-transform:uppercase}
+.section-title{font-size:clamp(28px,5vw,44px);font-weight:800;color:var(--white);margin-top:8px;line-height:1.15}
+section{padding:80px 0}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;background:rgba(23,19,31,.78);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-size:24px;font-weight:800;color:var(--white)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:15px;font-weight:600;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a.active{color:var(--green-b);border-bottom:3px solid var(--green-b)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:700;border-radius:12px;padding:14px 26px;font-size:16px;
+  transition:transform .15s,box-shadow .2s,background .2s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-b);transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(34,197,94,.5)}
+
+/* ---------- HERO ABOUT ---------- */
+.about-hero{position:relative;padding:120px 0 100px;overflow:hidden;display:flex;align-items:center}
+.about-hero::before{
+  content:"";position:absolute;top:-160px;right:-120px;width:620px;height:620px;
+  background:radial-gradient(circle,rgba(22,163,74,.18),transparent 62%);pointer-events:none;
+}
+.about-hero .wrap{display:grid;grid-template-columns:1.5fr .8fr;gap:50px;align-items:center}
+
+/* ---------- BIO SECTION ---------- */
+.bio h1{
+  font-size:clamp(36px,7vw,64px);font-weight:800;line-height:1.1;color:var(--white)
+}
+.bio h1 span{color:var(--green)}
+.bio p{
+  font-size:18px;color:var(--muted);max-width:650px;margin-top:24px;line-height:1.7
+}
+
+/* ---------- HERO AVATAR (matching style.css from index.html) */
+.avatar-wrap{display:flex;justify-content:center;align-items:center;position:relative}
+.avatar-ring{
+  width:min(340px,80vw);aspect-ratio:1;border-radius:50%;border:2px solid rgba(22,163,74,.5);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  box-shadow:0 30px 70px -20px rgba(22,163,74,.6);
+}
+.avatar{
+  width:84%;aspect-ratio:1;border-radius:50%;overflow:hidden;display:block;position:relative;
+}
+
+/* ---------- INFO GRID ---------- */
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:48px;text-align:center}
+.info-item .value{font-size:clamp(28px,4vw,38px);font-weight:800;color:var(--white)}
+.info-item label{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block;margin-top:6px}
+
+/* ---------- TIMELINE ABOUT ---------- */
+.timeline-about{margin-top:72px;border-top:1px solid var(--border);padding-top:48px}
+.item{position:relative;padding-left:30px;padding-bottom:36px;margin-bottom:28px}
+.item::before{
+  content:"";position:absolute;left:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--green);border:4px solid var(--bg);box-shadow:0 0 0 1px var(--green);
+}
+.item .meta{font-size:13px;font-weight:600;color:var(--green-b);letter-spacing:.04em;display:block;margin-bottom:8px}
+.item h3{font-size:20px;color:var(--white);font-weight:700;margin:8px 0 6px}
+.item p{font-size:15px;color:var(--muted);max-width:720px;line-height:1.6}
+
+/* ---------- CONTACT PREVIEW ---------- */
+.contact-preview{margin-top:80px;padding:36px;background:var(--card);border-radius:18px;border:1px solid var(--border);text-align:center}
+.contact-preview h3{font-size:clamp(22px,3vw,28px);font-weight:700;color:var(--white);margin-bottom:8px}
+.contact-preview p{font-size:15px;color:var(--muted)}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--border);padding:26px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--dim)}
+
+@media(max-width:900px){
+  .about-hero .wrap{grid-template-columns:1fr;text-align:center}
+  .avatar-section{order:-1}
+  .info-grid{grid-template-columns:repeat(2,1fr)}
+  .timeline-about{padding-top:30px}
+}
+@media(max-width:560px){
+  section{padding:56px 0}
+  .about-hero{min-height:auto;padding:80px 0 60px}
+  .info-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="/" class="logo">NE<span class="accent">.</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about.html" class="active">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Work</a>
+      <a href="/" class="btn btn-primary">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="about-hero">
+  <div class="wrap">
+    <div class="bio" id="content-section">
+      <h1>Hello, I'm <span>Noureddine</span></h1>
+      <p>I'm a Full Stack Engineer with 8+ years of experience building high-quality web and mobile solutions across startups and enterprises. I lead teams, own architecture decisions, and care deeply about code quality that translates into real business results.</p>
+    </div>
+    <div class="avatar-section">
+      <div class="avatar-ring">
+        <a href="/" class="avatar"><img src="https://www.ettouzany.me/img/about/4.jpg" alt="Noureddine Ettouzany" loading="lazy" /></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT CONTENT -->
+<section id="about">
+  <div class="wrap">
+    <span class="tag">About Me</span>
+    <h2 class="section-title">Behind the Code</h2>
+    
+    <div class="info-grid" id="stats-section">
+      <div class="info-item">
+        <div class="value">8+</div>
+        <label>Years Experience</label>
+      </div>
+      <div class="info-item">
+        <div class="value">40+"</div>
+        <label>Projects Delivered</label>
+      </div>
+      <div class="info-item">
+        <div class="value">10+</div>
+        <label>Companies Worked With</label>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline-about" id="experience-section">
+      <div class="item">
+        <span class="meta">2025 · React • CTO</span>
+        <h3>PUT — Real Estate Platform</h3>
+        <p>Leading technical vision and architecture of a platform for renting, selling and managing property.</p>
+      </div>
+      <div class="item">
+        <span class="meta">2024 — 2025 · Java • Team Lead</span>
+        <h3>Sahty (HealthTech)</h3>
+        <p>Managing cross-functional engineering team, driving architecture and scalable systems.</p>
+      </div>
+      <div class="item">
+        <span class="meta">2021 — 2026 · React • .NET Core</span>
+        <h3>Tygo.sa — SIM / eSIM Comparison Platform</h3>
+        <p>Built user-facing features covering 250+ packages for Saudi Arabia's market.</p>
+      </div>
+      <div class="item">
+        <span class="meta">2018 — Present · Angular • WordPress</span>
+        <h3>Fekra Systems &amp; Early Career</h3>
+        <p>Started building responsive web applications and management systems.</p>
+      </div>
+    </div>
+
+    <!-- CONTACT PREVIEW -->
+    <div class="contact-preview">
+      <h3>Let's Talk</h3>
+      <p>I'm open to new challenges, collaborations, or just a good conversation about technology.</p>
+      <a href="mailto:n.ettouzany@gmail.com" class="btn btn-primary" style="margin-top:20px">Say Hello →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <span>© 2026 Noureddine Ettouzany</span>
+    <span>Built with passion · Full Stack Engineer</span>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal animations
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.15 });
+
+  const sections = document.querySelectorAll('#about .info-grid, #experience-section .item');
+  sections.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(item);
+  });
+});
+
+// Update active nav state on scroll
+const currentNav = document.querySelector('.nav-links a.active');
+if (currentNav) {
+  const heroHeight = document.querySelector('.about-hero').offsetHeight;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > heroHeight - 100) {
+      currentNav.classList.add('active');
+      currentNav.style.color = 'var(--green-b)';
+    } else {
+      currentNav.classList.remove('active');
+    }
+  });
+}
+</script>
+
+</body>
+</html>
