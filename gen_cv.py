@@ -36,7 +36,7 @@ EXPERIENCE_META = [
     "2023  ·  Angular",
     "2026  ·  Next.js  ·  TypeScript",
     "2025  ·  React",
-    "2024 — 2025  ·  Java",
+    "2024 — 2026  ·  Java",
     "2022  ·  Next.js",
     "2022  ·  Flutter",
     "2022  ·  Flutter",
@@ -45,7 +45,7 @@ EXPERIENCE_META = [
     "2017  ·  WordPress",
 ]
 
-EDUCATION_YEARS = ["2019 — 2023", "2021 — 2022", "2018 — 2020"]
+EDUCATION_YEARS = ["2021 — 2023", "2021 — 2022", "2019 — 2021"]
 
 # --- per-language content ---------------------------------------------------
 
@@ -71,9 +71,9 @@ EN = {
         "drive architecture and code-quality standards to fuel business growth."
     ),
     "education": [
-        ("42 Network", "Master of Computer Science (MSCS)"),
-        ("ENSA", "Bachelor — Big Data & Machine Learning"),
-        ("OFPPT", "Diploma in Computer Science"),
+        ("1337 — 42 Network", "Computer Science Programme"),
+        ("ENSA Khouribga", "Professional Bachelor — Big Data & Machine Learning"),
+        ("OFPPT", "Specialized Technician Diploma — Computer Science"),
     ],
     "languages": ["Arabic — Native", "French — Fluent", "English — Professional"],
     "present": "Present",
@@ -158,9 +158,9 @@ FR = {
         "service de la croissance."
     ),
     "education": [
-        ("42 Network", "Master en informatique (MSCS)"),
-        ("ENSA", "Licence — Big Data & Machine Learning"),
-        ("OFPPT", "Diplôme en informatique"),
+        ("1337 — Réseau 42", "Programme en informatique"),
+        ("ENSA Khouribga", "Licence professionnelle — Big Data & Machine Learning"),
+        ("OFPPT", "Diplôme de technicien spécialisé — Informatique"),
     ],
     "languages": ["Arabe — Langue maternelle", "Français — Courant", "Anglais — Professionnel"],
     "present": "Aujourd'hui",
@@ -246,9 +246,9 @@ AR = {
         "الكود بما يدعم نمو الأعمال."
     ),
     "education": [
-        ("42 Network", "ماجستير في علوم الحاسوب (MSCS)"),
-        ("ENSA", "إجازة — البيانات الضخمة وتعلّم الآلة"),
-        ("OFPPT", "دبلوم في علوم الحاسوب"),
+        ("1337 — 42 Network", "برنامج في علوم الحاسوب"),
+        ("ENSA Khouribga", "إجازة مهنية — البيانات الضخمة وتعلّم الآلة"),
+        ("OFPPT", "دبلوم تقني متخصص — علوم الحاسوب"),
     ],
     "languages": ["العربية — اللغة الأم", "الفرنسية — بطلاقة", "الإنجليزية — مستوى مهني"],
     "present": "حتى الآن",
