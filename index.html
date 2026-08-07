@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Noureddine Ettouzany — Full Stack Engineer</title>
 <meta name="description" content="Noureddine Ettouzany is a full stack engineer based in Morocco, building high-quality web and mobile products with a focus on craft and performance." />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png" />
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -82,11 +86,30 @@ section{padding:120px 0}
 .portrait{width:min(320px,34vw);aspect-ratio:4/5;border-radius:14px;overflow:hidden;border:1px solid var(--line);filter:grayscale(.15)}
 .portrait img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-cta{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:15px 28px;border-radius:40px;transition:transform .15s,background .2s,color .2s}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:inherit;font-weight:600;font-size:15px;line-height:inherit;padding:15px 28px;border:1px solid transparent;border-radius:40px;background:none;color:inherit;transition:transform .15s,background .2s,color .2s,border-color .2s}
 .btn-primary{background:var(--accent);color:#0e0e0e}
 .btn-primary:hover{transform:translateY(-2px)}
-.btn-ghost{border:1px solid var(--line);color:var(--white)}
+.btn-ghost{border-color:var(--line);color:var(--white)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* CV DOWNLOAD — one button, three languages */
+.cv-dl{position:relative}
+.cv-dl .chev{display:block;transition:transform .3s var(--ease)}
+.cv-dl.open .chev{transform:rotate(180deg)}
+.cv-dl.open .btn-ghost{border-color:var(--accent);color:var(--accent)}
+/* opens upward — the CTA row sits low in a full-height hero */
+.cv-menu{
+  position:absolute;left:0;bottom:calc(100% + 10px);min-width:230px;z-index:20;
+  background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:8px;
+  box-shadow:0 24px 50px rgba(0,0,0,.45);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s;
+}
+.cv-dl.open .cv-menu{opacity:1;visibility:visible;transform:none}
+.cv-menu a{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 14px;border-radius:12px;font-size:14px;font-weight:500;color:var(--text);transition:background .2s,color .2s}
+.cv-menu a:hover{background:rgba(255,255,255,.06);color:var(--white)}
+.cv-menu a i{font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cv-menu a:hover i{color:var(--accent)}
 
 /* MARQUEE */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;white-space:nowrap}
@@ -112,6 +135,7 @@ section{padding:120px 0}
 .p-info h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,4vw,52px);line-height:1;color:var(--white);letter-spacing:-.02em;text-transform:uppercase;transition:transform .4s var(--ease)}
 .proj:hover .p-info h3{transform:translateX(10px)}
 .p-info .tags{margin-top:14px;font-size:14px;color:var(--muted)}
+.p-info .tags .now{display:inline-block;margin-right:10px;padding:4px 11px;border:1px solid rgba(198,255,58,.45);border-radius:30px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:rgba(198,255,58,.08);vertical-align:1px}
 .p-info .view{margin-top:20px;display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
 .proj:hover .p-info .view{opacity:1;transform:none}
 
@@ -227,6 +251,44 @@ section{padding:120px 0}
   .proj:hover .p-media .scan::after{animation:none}
 }
 
+/* PROJECT MODAL — for the projects with no public URL to send people to */
+.modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:28px;visibility:hidden;opacity:0;transition:opacity .35s var(--ease),visibility .35s}
+.modal.open{visibility:visible;opacity:1}
+.modal-back{position:absolute;inset:0;background:rgba(6,6,6,.82);backdrop-filter:blur(6px)}
+.modal-panel{
+  position:relative;width:min(1040px,100%);max-height:86vh;overflow:hidden;
+  background:var(--panel);border:1px solid var(--line);border-radius:22px;
+  display:grid;grid-template-columns:1.05fr 1fr;
+  transform:translateY(18px) scale(.985);transition:transform .45s var(--ease);
+}
+.modal.open .modal-panel{transform:none}
+.modal-gal{overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;background:#101010;border-right:1px solid var(--line)}
+.modal-gal img{width:100%;display:block;border-radius:12px;border:1px solid var(--line);background:#0d0d0d}
+.modal-info{overflow-y:auto;padding:38px 36px 34px}
+.modal-info h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,42px);line-height:1;letter-spacing:-.02em;text-transform:uppercase;color:var(--white);margin:12px 0 18px}
+.modal-info p{font-size:15px;color:var(--text);margin-bottom:14px}
+.m-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.m-tags span{border:1px solid var(--line);border-radius:30px;padding:7px 14px;font-size:12.5px;color:var(--text)}
+.m-apps{margin-top:26px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.m-apps a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;font-weight:500;color:var(--white);transition:border-color .2s,background .2s}
+.m-apps a:hover{border-color:var(--accent);background:rgba(198,255,58,.06)}
+.m-apps a em{font-style:normal;font-size:14px;line-height:1;color:var(--muted);white-space:nowrap}
+.m-apps a:hover em{color:var(--accent)}
+.m-note{margin-top:18px;font-size:13px;color:var(--muted)}
+.modal-x{
+  position:absolute;top:14px;right:14px;z-index:3;width:42px;height:42px;display:flex;
+  align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--line);
+  background:rgba(14,14,14,.85);color:var(--white);transition:border-color .2s,color .2s,transform .2s;
+}
+.modal-x:hover{border-color:var(--accent);color:var(--accent);transform:rotate(90deg)}
+@media(max-width:820px){
+  .modal{padding:14px}
+  .modal-panel{grid-template-columns:1fr;max-height:90vh;overflow-y:auto}
+  .modal-gal{max-height:42vh;border-right:0;border-bottom:1px solid var(--line)}
+  .modal-info{padding:28px 22px 26px;overflow:visible}
+  .m-apps{grid-template-columns:1fr}
+}
+
 /* ABOUT */
 .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
 .about h2{font-size:clamp(30px,4.5vw,52px);line-height:1.05;text-transform:uppercase;margin-bottom:26px}
@@ -305,6 +367,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="hero-cta">
         <a href="#work" class="btn btn-primary" data-hover>View Work ↓</a>
         <a href="#contact" class="btn btn-ghost" data-hover>Get in Touch</a>
+        <div class="cv-dl" id="cvdl">
+          <button type="button" class="btn btn-ghost" id="cvdl-btn" data-hover aria-haspopup="true" aria-expanded="false">Download CV <svg class="chev" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1.5 5.5 6 10 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="cv-menu" role="menu">
+            <a href="cv/noureddine-ettouzany-cv-en.pdf" download data-hover role="menuitem">English <i>PDF</i></a>
+            <a href="cv/noureddine-ettouzany-cv-fr.pdf" download data-hover role="menuitem">Français <i>PDF</i></a>
+            <a href="cv/noureddine-ettouzany-cv-ar.pdf" download data-hover role="menuitem">العربية <i>PDF</i></a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="portrait"><img src="img/about/4-web.webp" alt="Noureddine Ettouzany" /></div>
@@ -327,44 +397,49 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <p>A selection of platforms, apps and products I've designed and built over the years.</p>
     </div>
     <div class="projects">
-      <a href="https://acorvo.com" target="_blank" rel="noopener" class="proj reveal" data-hover>
+      <a href="https://tygo.sa" target="_blank" rel="noopener" class="proj reveal" data-hover>
         <div class="p-num">01</div>
+        <div class="p-info"><h3>Tygo.sa</h3><div class="tags"><span class="now">Current · Freelance</span>SIM / eSIM comparison · React · .NET Core</div><span class="view">View project ↗</span></div>
+        <div class="p-media" style="--img:url(img/portfolio/tygo/2-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
+      </a>
+      <a href="https://saudipedia.com/%D9%85%D9%86%D8%B5%D8%A9-%D8%B5%D9%86%D8%A7%D8%B9%D9%8A" target="_blank" rel="noopener" class="proj reveal" data-hover>
+        <div class="p-num">02</div>
+        <div class="p-info"><h3>Senaei</h3><div class="tags">Ministry of Industry · Angular</div><span class="view">View project ↗</span></div>
+        <div class="p-media" style="--img:url(img/portfolio/senaei/cover-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
+      </a>
+      <a href="https://acorvo.com" target="_blank" rel="noopener" class="proj reveal" data-hover>
+        <div class="p-num">03</div>
         <div class="p-info"><h3>Acorvo</h3><div class="tags">Dental practice SaaS · Next.js · Full Stack</div><span class="view">View project ↗</span></div>
         <div class="p-media" style="--img:url(img/portfolio/acorvo/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
       <a href="https://put.ma" target="_blank" rel="noopener" class="proj reveal" data-hover>
-        <div class="p-num">02</div>
+        <div class="p-num">04</div>
         <div class="p-info"><h3>PUT</h3><div class="tags">Real-estate platform · React · CTO</div><span class="view">View project ↗</span></div>
         <div class="p-media" style="--img:url(img/portfolio/put.ma/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
-      <a href="https://tygo.sa" target="_blank" rel="noopener" class="proj reveal" data-hover>
-        <div class="p-num">03</div>
-        <div class="p-info"><h3>Tygo.sa</h3><div class="tags">SIM / eSIM comparison · React · .NET Core</div><span class="view">View project ↗</span></div>
-        <div class="p-media" style="--img:url(img/portfolio/tygo/2-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
-      </a>
-      <a href="https://saudipedia.com/%D9%85%D9%86%D8%B5%D8%A9-%D8%B5%D9%86%D8%A7%D8%B9%D9%8A" target="_blank" rel="noopener" class="proj reveal" data-hover>
-        <div class="p-num">04</div>
-        <div class="p-info"><h3>Senaei</h3><div class="tags">Ministry of Industry · Angular</div><span class="view">View project ↗</span></div>
-        <div class="p-media" style="--img:url(img/portfolio/senaei/cover-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
-      </a>
-      <a href="#work" class="proj reveal" data-hover>
+      <a href="#work" data-modal="sntl" class="proj reveal" data-hover>
         <div class="p-num">05</div>
-        <div class="p-info"><h3>Derwork</h3><div class="tags">Jobs platform · Next.js</div><span class="view">View project ↗</span></div>
+        <div class="p-info"><h3>SNTL Assurances</h3><div class="tags">Car insurance app · Flutter</div><span class="view">View details →</span></div>
+        <div class="p-media" style="--img:url(img/portfolio/sntl/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
+      </a>
+      <a href="#work" data-modal="derwork" class="proj reveal" data-hover>
+        <div class="p-num">06</div>
+        <div class="p-info"><h3>Derwork</h3><div class="tags">Jobs platform · Next.js</div><span class="view">View details →</span></div>
         <div class="p-media" style="--img:url(img/portfolio/derwork/1.jpeg)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
-      <a href="#work" class="proj reveal" data-hover>
-        <div class="p-num">06</div>
-        <div class="p-info"><h3>Edoc</h3><div class="tags">8 educational apps · Flutter</div><span class="view">View project ↗</span></div>
+      <a href="#work" data-modal="edoc" class="proj reveal" data-hover>
+        <div class="p-num">07</div>
+        <div class="p-info"><h3>Edoc</h3><div class="tags">8 educational apps · Flutter</div><span class="view">View details →</span></div>
         <div class="p-media" style="--img:url(img/portfolio/edoc/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
-      <a href="#work" class="proj reveal" data-hover>
-        <div class="p-num">07</div>
-        <div class="p-info"><h3>Inclusive Morocco</h3><div class="tags">Accessibility platform · React</div><span class="view">View project ↗</span></div>
+      <a href="#work" data-modal="inclusive" class="proj reveal" data-hover>
+        <div class="p-num">08</div>
+        <div class="p-info"><h3>Inclusive Morocco</h3><div class="tags">Travel &amp; tour booking · React</div><span class="view">View details →</span></div>
         <div class="p-media" style="--img:url(img/portfolio/inclusive-morocco/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
-      <a href="#work" class="proj reveal" data-hover>
-        <div class="p-num">08</div>
-        <div class="p-info"><h3>Qless</h3><div class="tags">Queue management · Mobile</div><span class="view">View project ↗</span></div>
+      <a href="#work" data-modal="qless" class="proj reveal" data-hover>
+        <div class="p-num">09</div>
+        <div class="p-info"><h3>Qless</h3><div class="tags">Queue management · Mobile</div><span class="view">View details →</span></div>
         <div class="p-media" style="--img:url(img/portfolio/qless/1-web.webp)"><div class="glitch"></div><div class="scan"></div></div>
       </a>
     </div>
@@ -414,6 +489,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   </div>
 </section>
 
+<!-- PROJECT MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" aria-hidden="true">
+  <div class="modal-back" data-close></div>
+  <div class="modal-panel">
+    <button type="button" class="modal-x" id="modal-x" data-close data-hover aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal-gal" id="m-gal"></div>
+    <div class="modal-info">
+      <span class="eyebrow" id="m-eyebrow"></span>
+      <h3 id="m-title"></h3>
+      <div id="m-body"></div>
+      <div class="m-tags" id="m-tags"></div>
+      <div class="m-apps" id="m-apps"></div>
+      <p class="m-note" id="m-note"></p>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -440,9 +534,140 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     dot.style.transform='translate3d('+x+'px,'+y+'px,0) translate(-50%,-50%)';
     if(!running){running=true;requestAnimationFrame(loop);}
   },{passive:true});
-  document.querySelectorAll('[data-hover]').forEach(function(el){
-    el.addEventListener('mouseenter',function(){document.body.classList.add('hovering')});
-    el.addEventListener('mouseleave',function(){document.body.classList.remove('hovering')});
+  // delegated, so modal content rendered later reacts too
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest&&e.target.closest('[data-hover]'))document.body.classList.add('hovering');
+  });
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest&&e.target.closest('[data-hover]'))document.body.classList.remove('hovering');
+  });
+})();
+
+// ---- CV download menu ----
+(function(){
+  var box=document.getElementById('cvdl'),btn=document.getElementById('cvdl-btn');
+  if(!box||!btn)return;
+  function set(open){
+    box.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  }
+  btn.addEventListener('click',function(e){e.stopPropagation();set(!box.classList.contains('open'));});
+  // any click outside, any pick inside, or Escape puts it away again
+  document.addEventListener('click',function(e){if(!box.contains(e.target))set(false);});
+  box.querySelectorAll('.cv-menu a').forEach(function(a){a.addEventListener('click',function(){set(false)});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+})();
+
+// ---- Project modal ----
+// Projects with no public URL open here instead of going nowhere.
+(function(){
+  function store(app){
+    return 'https://play.google.com/store/search?q='+encodeURIComponent('Edoc '+app)+'&c=apps';
+  }
+  var DATA={
+    sntl:{
+      eyebrow:'Mobile · Insurance',
+      title:'SNTL Assurances',
+      body:[
+        'A car-insurance app for SNTL Assurances that turns a quote into a short guided flow instead of a form: promo code, fuel type, engine power, declared value of the vehicle — then a side-by-side comparison of the collision packs with live pricing in dirhams.',
+        'Built in Flutter for iOS and Android, fully bilingual French / Arabic, with the brand system carried through every step of the funnel.'
+      ],
+      tags:['Flutter','iOS &amp; Android','French / Arabic','Insurance'],
+      shots:['img/portfolio/sntl/1.jpg','img/portfolio/sntl/2.jpg']
+    },
+    derwork:{
+      eyebrow:'2022 · Next.js · Project Manager',
+      title:'Derwork',
+      body:[
+        'A jobs platform built in Next.js — listings and search for candidates, company profiles and reviews, and dashboards for employers tracking their openings and applicants.',
+        'I led delivery on this one, running a cross-functional team of designers and engineers from scope through launch.'
+      ],
+      tags:['Next.js','Project management','Dashboards'],
+      shots:['img/portfolio/derwork/1.jpeg'],
+      small:true
+    },
+    edoc:{
+      eyebrow:'2022 · Flutter · 8 apps',
+      title:'Edoc',
+      body:[
+        'Edoc is a series of free mobile apps that teach programming — one app per language, each with structured lessons, chapter-by-chapter progress, quizzes, a scored final test and a certificate you can request on completion.',
+        'I designed and built the eight apps in the series on a shared Flutter codebase, so a new language ships as content rather than a new project.'
+      ],
+      tags:['Flutter','Android','Course engine','Quizzes &amp; tests'],
+      apps:[
+        {name:'Learn HTML',url:store('Learn HTML')},
+        {name:'Learn CSS',url:store('Learn CSS')},
+        {name:'Learn JavaScript',url:store('Learn JavaScript')},
+        {name:'Learn JSON',url:store('Learn JSON')},
+        {name:'Learn Android',url:store('Learn Android')},
+        {name:'All Edoc apps',url:'https://play.google.com/store/search?q='+encodeURIComponent('Edoc learn courses')+'&c=apps'}
+      ],
+      note:'All eight apps in the series are free on Google Play.',
+      shots:['img/portfolio/edoc/1.jpg','img/portfolio/edoc/2.jpg','img/portfolio/edoc/3.jpg']
+    },
+    inclusive:{
+      eyebrow:'React · Travel',
+      title:'Inclusive Morocco',
+      body:[
+        'A travel site for a Moroccan tour operator — browse and search destinations from Casablanca and Chefchaouen to the dunes of Erg Chebbi, read what each region offers, then book a guided trip.',
+        'Built in React around a destination catalogue, a photo gallery and a booking flow, with the brand’s editorial look carried across the whole site.'
+      ],
+      tags:['React','Destination search','Booking flow','Gallery'],
+      shots:['img/portfolio/inclusive-morocco/2.jpg','img/portfolio/inclusive-morocco/3.jpg','img/portfolio/inclusive-morocco/4.jpg']
+    },
+    qless:{
+      eyebrow:'Mobile · Web',
+      title:'Qless',
+      body:[
+        'Queue management that replaces the physical line: customers join from their phone and wait wherever they want, getting called back when their turn comes up.',
+        'On the staff side, live boards track everyone waiting, summoned and being served, alongside appointment scheduling and reporting — used across government offices, campuses, retail and healthcare.'
+      ],
+      tags:['Mobile','Virtual queueing','Scheduling','Dashboards'],
+      shots:['img/portfolio/qless/1.jpg']
+    }
+  };
+
+  var modal=document.getElementById('modal');
+  if(!modal)return;
+  var gal=document.getElementById('m-gal'),eyebrow=document.getElementById('m-eyebrow'),
+      title=document.getElementById('m-title'),body=document.getElementById('m-body'),
+      tags=document.getElementById('m-tags'),apps=document.getElementById('m-apps'),
+      note=document.getElementById('m-note'),last=null;
+
+  function open(key){
+    var d=DATA[key]; if(!d)return;
+    eyebrow.textContent=d.eyebrow;
+    title.textContent=d.title;
+    body.innerHTML=d.body.map(function(p){return '<p>'+p+'</p>'}).join('');
+    tags.innerHTML=d.tags.map(function(t){return '<span>'+t+'</span>'}).join('');
+    apps.innerHTML=(d.apps||[]).map(function(a){
+      return '<a href="'+a.url+'" target="_blank" rel="noopener" data-hover>'+a.name+' <em>↗</em></a>';
+    }).join('');
+    note.textContent=d.note||'';
+    note.style.display=d.note?'':'none';
+    gal.innerHTML=d.shots.map(function(s){
+      return '<img src="'+s+'" alt="'+d.title+' screen" loading="lazy"'+
+             (d.small?' style="max-width:220px;margin:0 auto"':'')+' />';
+    }).join('');
+    gal.scrollTop=0;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    document.getElementById('modal-x').focus();
+  }
+  function close(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(last)last.focus();
+  }
+
+  document.querySelectorAll('.proj[data-modal]').forEach(function(p){
+    p.addEventListener('click',function(e){e.preventDefault();last=p;open(p.getAttribute('data-modal'));});
+  });
+  modal.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener('click',close)});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&modal.classList.contains('open'))close();
   });
 })();
 

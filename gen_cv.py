@@ -30,12 +30,13 @@ SKILL_VALUES = [
 ]
 
 # (role, company, meta, description) per language; meta stays LTR everywhere.
+# `{present}` is filled per language so the current role reads natively.
 EXPERIENCE_META = [
+    "2021 — {present}  ·  React  ·  .NET Core",
+    "2023  ·  Angular",
     "2026  ·  Next.js  ·  TypeScript",
     "2025  ·  React",
     "2024 — 2025  ·  Java",
-    "2021 — 2026  ·  React  ·  .NET Core",
-    "2023  ·  Angular",
     "2022  ·  Next.js",
     "2022  ·  Flutter",
     "2022  ·  Flutter",
@@ -75,7 +76,19 @@ EN = {
         ("OFPPT", "Diploma in Computer Science"),
     ],
     "languages": ["Arabic — Native", "French — Fluent", "English — Professional"],
+    "present": "Present",
+    "current_label": "Current",
     "experience": [
+        (
+            "Front-end Developer (Freelancer) — Tygo.sa",
+            "Built user-facing features for a SIM / eSIM comparison platform covering 250+ "
+            "packages in Saudi Arabia.",
+        ),
+        (
+            "Front-end Developer — Senaei (Ministry of Industry, SA)",
+            "Developed Angular interfaces simplifying industrial licensing and compliance "
+            "workflows for investors.",
+        ),
         (
             "Full Stack Engineer — Acorvo",
             "Built the front-end of a dental practice management SaaS: patient records, smart "
@@ -90,16 +103,6 @@ EN = {
             "Team Leader / Software Manager — Sahty",
             "Managing a cross-functional engineering team, driving architecture and code-quality "
             "standards, and delivering scalable systems.",
-        ),
-        (
-            "Front-end Developer — Tygo.sa",
-            "Built user-facing features for a SIM / eSIM comparison platform covering 250+ "
-            "packages in Saudi Arabia.",
-        ),
-        (
-            "Front-end Developer — Senaei (Ministry of Industry, SA)",
-            "Developed Angular interfaces simplifying industrial licensing and compliance "
-            "workflows for investors.",
         ),
         (
             "Project Manager — Derwork",
@@ -160,7 +163,19 @@ FR = {
         ("OFPPT", "Diplôme en informatique"),
     ],
     "languages": ["Arabe — Langue maternelle", "Français — Courant", "Anglais — Professionnel"],
+    "present": "Aujourd'hui",
+    "current_label": "Poste actuel",
     "experience": [
+        (
+            "Développeur Front-end (Freelance) — Tygo.sa",
+            "Développement des fonctionnalités utilisateur d'une plateforme de comparaison SIM / "
+            "eSIM couvrant plus de 250 forfaits en Arabie saoudite.",
+        ),
+        (
+            "Développeur Front-end — Senaei (Ministère de l'Industrie, AS)",
+            "Création d'interfaces Angular simplifiant les démarches de licences industrielles et "
+            "de conformité pour les investisseurs.",
+        ),
         (
             "Ingénieur Full Stack — Acorvo",
             "Développement du front-end d'un SaaS de gestion de cabinets dentaires : dossiers "
@@ -176,16 +191,6 @@ FR = {
             "Team Leader / Software Manager — Sahty",
             "Encadrement d'une équipe d'ingénierie pluridisciplinaire, définition de "
             "l'architecture et des standards de qualité, livraison de systèmes scalables.",
-        ),
-        (
-            "Développeur Front-end — Tygo.sa",
-            "Développement des fonctionnalités utilisateur d'une plateforme de comparaison SIM / "
-            "eSIM couvrant plus de 250 forfaits en Arabie saoudite.",
-        ),
-        (
-            "Développeur Front-end — Senaei (Ministère de l'Industrie, AS)",
-            "Création d'interfaces Angular simplifiant les démarches de licences industrielles et "
-            "de conformité pour les investisseurs.",
         ),
         (
             "Chef de projet — Derwork",
@@ -246,7 +251,17 @@ AR = {
         ("OFPPT", "دبلوم في علوم الحاسوب"),
     ],
     "languages": ["العربية — اللغة الأم", "الفرنسية — بطلاقة", "الإنجليزية — مستوى مهني"],
+    "present": "حتى الآن",
+    "current_label": "المنصب الحالي",
     "experience": [
+        (
+            "مطوّر واجهات أمامية (عمل حر) — Tygo.sa",
+            "تطوير واجهات منصة لمقارنة شرائح SIM / eSIM تغطي أكثر من 250 باقة في السعودية.",
+        ),
+        (
+            "مطوّر واجهات أمامية — Senaei (وزارة الصناعة، السعودية)",
+            "بناء واجهات Angular لتبسيط مساطر التراخيص الصناعية والامتثال بالنسبة للمستثمرين.",
+        ),
         (
             "مهندس تطوير متكامل — Acorvo",
             "تطوير الواجهة الأمامية لمنصة SaaS لإدارة عيادات الأسنان: ملفات المرضى، الجدولة "
@@ -260,14 +275,6 @@ AR = {
             "قائد فريق / مدير برمجيات — Sahty",
             "إدارة فريق هندسي متعدد التخصصات، ووضع معايير البنية البرمجية وجودة الكود، وتسليم "
             "أنظمة قابلة للتوسّع.",
-        ),
-        (
-            "مطوّر واجهات أمامية — Tygo.sa",
-            "تطوير واجهات منصة لمقارنة شرائح SIM / eSIM تغطي أكثر من 250 باقة في السعودية.",
-        ),
-        (
-            "مطوّر واجهات أمامية — Senaei (وزارة الصناعة، السعودية)",
-            "بناء واجهات Angular لتبسيط مساطر التراخيص الصناعية والامتثال بالنسبة للمستثمرين.",
         ),
         (
             "مدير مشروع — Derwork",
@@ -369,6 +376,13 @@ body {
 .job:last-child { margin-bottom: 0; }
 .job-role { font-size: 9pt; font-weight: 700; color: #262138; line-height: 1.25; }
 .job-meta { font-size: 7.4pt; font-weight: 600; color: #16a34a; margin-top: 0.4mm; }
+/* the "current position" pill riding next to the top-most role */
+.now {
+  display: inline-block; vertical-align: 0.4mm; margin-inline-start: 1.8mm;
+  font-size: 6pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  color: #16a34a; background: #eaf7ef; border: 0.22mm solid #9fd7b4;
+  border-radius: 4mm; padding: 0.25mm 1.6mm; white-space: nowrap;
+}
 .job-desc { font-size: 8pt; line-height: 1.42; color: #4a4560; margin-top: 0.7mm; }
 
 /* Arabic: mirror the layout and keep latin runs (dates, tech, urls) LTR */
@@ -423,11 +437,18 @@ def render(lang):
     lang_items = "\n".join(
         '      <div class="lang">%s</div>' % esc(item) for item in lang["languages"]
     )
+    # the first entry is the role currently held, so it carries the pill
     jobs = "\n".join(
-        '        <div class="job"><div class="job-role">%s</div>'
+        '        <div class="job"><div class="job-role">%s%s</div>'
         '<div class="job-meta"><span class="ltr">%s</span></div>'
-        '<div class="job-desc">%s</div></div>' % (esc(role), esc(meta), esc(desc))
-        for (role, desc), meta in zip(lang["experience"], EXPERIENCE_META)
+        '<div class="job-desc">%s</div></div>'
+        % (
+            esc(role),
+            '<span class="now">%s</span>' % esc(lang["current_label"]) if i == 0 else "",
+            esc(meta.format(present=lang["present"])),
+            esc(desc),
+        )
+        for i, ((role, desc), meta) in enumerate(zip(lang["experience"], EXPERIENCE_META))
     )
 
     return """<!DOCTYPE html>
@@ -435,6 +456,9 @@ def render(lang):
 <head>
 <meta charset="utf-8" />
 <title>%(name)s — CV (%(code_up)s)</title>
+<link rel="icon" href="../favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png" />
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />

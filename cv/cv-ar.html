@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <title>نور الدين التوزاني — CV (AR)</title>
+<link rel="icon" href="../favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png" />
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -76,6 +79,13 @@ body {
 .job:last-child { margin-bottom: 0; }
 .job-role { font-size: 9pt; font-weight: 700; color: #262138; line-height: 1.25; }
 .job-meta { font-size: 7.4pt; font-weight: 600; color: #16a34a; margin-top: 0.4mm; }
+/* the "current position" pill riding next to the top-most role */
+.now {
+  display: inline-block; vertical-align: 0.4mm; margin-inline-start: 1.8mm;
+  font-size: 6pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  color: #16a34a; background: #eaf7ef; border: 0.22mm solid #9fd7b4;
+  border-radius: 4mm; padding: 0.25mm 1.6mm; white-space: nowrap;
+}
 .job-desc { font-size: 8pt; line-height: 1.42; color: #4a4560; margin-top: 0.7mm; }
 
 /* Arabic: mirror the layout and keep latin runs (dates, tech, urls) LTR */
@@ -154,11 +164,11 @@ body[dir="rtl"] .lang { font-size: 7.8pt; margin-bottom: 1.3mm; }
     <section>
       <h2>الخبرة المهنية</h2>
       <div class="xp">
+        <div class="job"><div class="job-role">مطوّر واجهات أمامية (عمل حر) — Tygo.sa<span class="now">المنصب الحالي</span></div><div class="job-meta"><span class="ltr">2021 — حتى الآن  ·  React  ·  .NET Core</span></div><div class="job-desc">تطوير واجهات منصة لمقارنة شرائح SIM / eSIM تغطي أكثر من 250 باقة في السعودية.</div></div>
+        <div class="job"><div class="job-role">مطوّر واجهات أمامية — Senaei (وزارة الصناعة، السعودية)</div><div class="job-meta"><span class="ltr">2023  ·  Angular</span></div><div class="job-desc">بناء واجهات Angular لتبسيط مساطر التراخيص الصناعية والامتثال بالنسبة للمستثمرين.</div></div>
         <div class="job"><div class="job-role">مهندس تطوير متكامل — Acorvo</div><div class="job-meta"><span class="ltr">2026  ·  Next.js  ·  TypeScript</span></div><div class="job-desc">تطوير الواجهة الأمامية لمنصة SaaS لإدارة عيادات الأسنان: ملفات المرضى، الجدولة الذكية، الفوترة، لوحات التحليلات، صلاحيات حسب الدور وواجهة متعددة اللغات.</div></div>
         <div class="job"><div class="job-role">مدير تقني (CTO) — PUT</div><div class="job-meta"><span class="ltr">2025  ·  React</span></div><div class="job-desc">قيادة الرؤية التقنية والبنية البرمجية لمنصة PUT العقارية لكراء وبيع وإدارة العقارات.</div></div>
         <div class="job"><div class="job-role">قائد فريق / مدير برمجيات — Sahty</div><div class="job-meta"><span class="ltr">2024 — 2025  ·  Java</span></div><div class="job-desc">إدارة فريق هندسي متعدد التخصصات، ووضع معايير البنية البرمجية وجودة الكود، وتسليم أنظمة قابلة للتوسّع.</div></div>
-        <div class="job"><div class="job-role">مطوّر واجهات أمامية — Tygo.sa</div><div class="job-meta"><span class="ltr">2021 — 2026  ·  React  ·  .NET Core</span></div><div class="job-desc">تطوير واجهات منصة لمقارنة شرائح SIM / eSIM تغطي أكثر من 250 باقة في السعودية.</div></div>
-        <div class="job"><div class="job-role">مطوّر واجهات أمامية — Senaei (وزارة الصناعة، السعودية)</div><div class="job-meta"><span class="ltr">2023  ·  Angular</span></div><div class="job-desc">بناء واجهات Angular لتبسيط مساطر التراخيص الصناعية والامتثال بالنسبة للمستثمرين.</div></div>
         <div class="job"><div class="job-role">مدير مشروع — Derwork</div><div class="job-meta"><span class="ltr">2022  ·  Next.js</span></div><div class="job-desc">قيادة تسليم منصة توظيف بـ Next.js تضم إعلانات الوظائف وتقييمات الشركات ولوحات التحكّم، مع إدارة فرق متعددة التخصصات.</div></div>
         <div class="job"><div class="job-role">مطوّر تطبيقات — Edoc</div><div class="job-meta"><span class="ltr">2022  ·  Flutter</span></div><div class="job-desc">تصميم وتطوير 8 تطبيقات تعليمية لتعلّم لغات البرمجة عبر الدروس والاختبارات.</div></div>
         <div class="job"><div class="job-role">مطوّر تطبيقات وويب — Havatar</div><div class="job-meta"><span class="ltr">2022  ·  Flutter</span></div><div class="job-desc">بناء منصة توصيل متكاملة (على غرار Glovo) للزبناء والسائقين والتجّار بشكل مستقل.</div></div>
